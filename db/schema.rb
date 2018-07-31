@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 2018_07_31_221148) do
 
   create_table "banks", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
