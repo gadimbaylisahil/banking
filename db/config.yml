@@ -2,12 +2,11 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  host: localhost
 
 development:
   <<: *default
   database: banking_development
 
-test: &test
+test:
   <<: *default
   database: banking_test

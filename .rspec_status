@@ -1,6 +1,9 @@
-example_id                                          | status | run_time        |
---------------------------------------------------- | ------ | --------------- |
-./spec/models/account_spec.rb[1:1]                  | failed | 0.01302 seconds |
-./spec/models/bank_spec.rb[1:1]                     | failed | 0.0003 seconds  |
-./spec/models/transfer_spec.rb[1:1]                 | failed | 0.00016 seconds |
-./spec/services/transfer_agent_service_spec.rb[1:1] | failed | 0.00011 seconds |
+example_id                                          | status  | run_time        |
+--------------------------------------------------- | ------- | --------------- |
+./spec/models/account_spec.rb[1:1]                  | pending | 0.00001 seconds |
+./spec/models/bank_spec.rb[1:1:1:1]                 | passed  | 0.04851 seconds |
+./spec/models/bank_spec.rb[1:1:2:1]                 | passed  | 0.00922 seconds |
+./spec/models/bank_spec.rb[1:2:1]                   | passed  | 0.00457 seconds |
+./spec/models/bank_spec.rb[1:2:2]                   | passed  | 0.00158 seconds |
+./spec/models/transfer_spec.rb[1:1]                 | pending | 0.00001 seconds |
+./spec/services/transfer_agent_service_spec.rb[1:1] | pending | 0 seconds       |
