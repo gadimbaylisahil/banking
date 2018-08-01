@@ -5,5 +5,6 @@ example_id                                          | status  | run_time        
 ./spec/models/bank_spec.rb[1:1:2:1]                 | passed  | 0.00922 seconds |
 ./spec/models/bank_spec.rb[1:2:1]                   | passed  | 0.00457 seconds |
 ./spec/models/bank_spec.rb[1:2:2]                   | passed  | 0.00158 seconds |
+./spec/models/transaction_spec.rb[1:1]              | unknown |                 |
 ./spec/models/transfer_spec.rb[1:1]                 | pending | 0.00001 seconds |
 ./spec/services/transfer_agent_service_spec.rb[1:1] | pending | 0 seconds       |
