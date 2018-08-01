@@ -30,12 +30,19 @@ TransferAgentService.new(transfer: transfer, from: jims_account, to: emmas_accou
 puts "Jim's balance after transfer #{jims_account.balance}, he paid #{transfer.commission} in commission"
 puts "Emma's balance after transfer #{emmas_account.balance}"
 
+puts "Transfer status: #{transfer.status}"
 puts "Total number of successful
 			transactions needed to complete the transfer is: #{transfer.transactions.where(status: 'completed').count}"
 
 # History of trxs(all transactions complted or failed)
 puts "Total number of transactions needed to be performed.(Including failed ones): #{transfer.transactions.count}"
 transfer.transactions.each_with_index do |trx, index|
-	puts "Transaction no #{index}. Amount: #{trx.amount}€. Status: #{trx.status}"
+	puts "Transaction no #{index + 1}. Amount: #{trx.amount}€. Status: #{trx.status}"
 end
 
+# Also transactions can be accessed by the Bank instances
+puts "All transactions for #{jims_bank.name}"
+
+jims_bank.transactions.each_with_index do |trx, index|
+	puts "Transaction no #{index + 1}. Amount: #{trx.amount}€. Status: #{trx.status}"
+end

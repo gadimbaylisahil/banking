@@ -10,4 +10,5 @@ class Bank < ActiveRecord::Base
 	validates :name, presence: true
 	has_many :accounts
 	has_many :transfers, through: :accounts
+	has_many :transactions, through: :accounts, source: :transactions
 end
