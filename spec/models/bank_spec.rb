@@ -31,8 +31,12 @@ RSpec.describe Bank, type: :model do
 			expect(bank).to respond_to(:accounts)
 		end
 		
-		it 'has many transfers' do
+		it 'has many transfers through accounts' do
 			expect(bank).to respond_to(:transfers)
+		end
+		
+		it 'has many transactions through transfers' do
+			expect(bank).to respond_to(:transactions)
 		end
 	end
 end
