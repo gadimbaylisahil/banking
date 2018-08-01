@@ -29,7 +29,7 @@ Followings are used as dependencies of the application.
 ##### Prepare test database.
 1. Run `bundle exec rake db:test:prepare`
 
-####Run the application and see the output for example case
+###Run the application and see the output for example case
 `bundle exec ruby lib/show_me_the_money.rb`
 
 #### Tests
