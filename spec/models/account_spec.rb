@@ -22,7 +22,7 @@ RSpec.describe Account, type: :model do
 				Account.new(name: nil)
 			}
 			it 'throws an exception' do
-				expect{ account.save! }.to raise_exception
+				expect{ account.save! }.to raise_exception(ActiveRecord::RecordInvalid)
 			end
 		end
 		context 'when balance is invalid' do
@@ -30,15 +30,15 @@ RSpec.describe Account, type: :model do
 				Account.new(balance: nil)
 			}
 			it 'throws an exception' do
-				expect{ account.save! }.to raise_exception
+				expect{ account.save! }.to raise_exception(ActiveRecord::RecordInvalid)
 			end
 		end
 		context 'when bank is invalid' do
 			let(:account){
-				Account.new(bank: nil, balance: 2000)
+				Account.new(bank: nil, balance: 2000, name: 'John Diggins')
 			}
 			it 'throws an exception' do
-				expect{ account.save! }.to raise_exception
+				expect{ account.save! }.to raise_exception(ActiveRecord::StatementInvalid)
 			end
 		end
 	end

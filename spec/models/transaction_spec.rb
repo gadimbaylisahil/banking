@@ -39,16 +39,16 @@ RSpec.describe Transaction, type: :model do
 				Transaction.create(transfer: transfer, amount: 0)
 			}
 			it 'throws an exception' do
-				expect{ transfer.save! }.to raise_exception
+				expect{ transfer.save! }.to raise_exception(ActiveRecord::RecordInvalid)
 			end
 		end
 		
 		context 'when transfer is invalid' do
-			let(:transfer){
+			let(:transaction){
 				Transaction.new(amount: 500, transfer: nil)
 			}
 			it 'throws an exception' do
-				expect{ transaction.save! }.to raise_exception
+				expect{ transaction.save! }.to raise_exception(ActiveRecord::StatementInvalid)
 			end
 		end
 	end

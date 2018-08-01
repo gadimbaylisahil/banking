@@ -17,7 +17,7 @@ RSpec.describe Bank, type: :model do
 				Bank.new(name: nil)
 			}
 			it 'throws an exception' do
-				expect{ bank.save! }.to raise_exception
+				expect{ bank.save! }.to raise_exception(ActiveRecord::RecordInvalid)
 			end
 		end
 	end

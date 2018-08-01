@@ -33,7 +33,7 @@ RSpec.describe Transfer, type: :model do
 				Transfer.new(transfer_amount: 0, account: account)
 			}
 			it 'throws an exception' do
-				expect{ transfer.save! }.to raise_exception
+				expect{ transfer.save! }.to raise_exception(ActiveRecord::RecordInvalid)
 			end
 		end
 		context 'when account is invalid' do
@@ -41,7 +41,7 @@ RSpec.describe Transfer, type: :model do
 				Transfer.new(transfer_amount: 1000, account: nil)
 			}
 			it 'throws an exception' do
-				expect{ transfer.save! }.to raise_exception
+				expect{ transfer.save! }.to raise_exception(ActiveRecord::StatementInvalid)
 			end
 		end
 	end
