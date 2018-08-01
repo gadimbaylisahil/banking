@@ -15,7 +15,7 @@ Followings are used as dependencies of the application.
 4. pry-byebug: Better Debugging with Pry
 5. rspec (~> 3.7): Testing framework to write speclike tests.
 6. standalone_migrations: Enables rake tasks to manage the database and its migrations.
-
+7. database-cleaner: To clean up the test database after each spec
 ### Instructions
 
 ##### Set up the Project
