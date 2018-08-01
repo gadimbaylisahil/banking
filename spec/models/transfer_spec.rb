@@ -20,6 +20,9 @@ RSpec.describe Transfer, type: :model do
 			it 'sets status to pending' do
 				expect(transfer.status).to eq('pending')
 			end
+			it 'holds pending_amount' do
+				expect(transfer.pending_amount).to eq(transfer.transfer_amount)
+			end
 		end
 		
 		context 'when transfer_amount is invalid' do

@@ -15,7 +15,7 @@ RSpec.describe TransferAgentService do
 		Account.create(balance: 50000, bank: bank_b, name: 'Emma')
 	}
 	let(:transfer){
-		Transfer.create(transfer_amount: 200000, account: account_from)
+		Transfer.create(transfer_amount: 20000, account: account_from)
 	}
 	describe 'Initialization' do
 		let(:transfer_agent){
@@ -29,6 +29,17 @@ RSpec.describe TransferAgentService do
 		end
 		it 'holds to account' do
 			expect(transfer_agent.to).to eq(account_to)
+		end
+	end
+	
+	describe 'Transfer' do
+		let(:transfer_agent){
+			TransferAgentService.new(transfer: transfer, from: account_from, to: account_to)
+		}
+		context 'when called' do
+			it 'transfers money from sender to receiver' do
+				expect{ transfer_agent.call }.to change{account_to.balance}.from(50000).to(70000)
+			end
 		end
 	end
 end
