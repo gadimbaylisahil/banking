@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_101427) do
+ActiveRecord::Schema.define(version: 2018_08_01_104300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2018_08_01_101427) do
   create_table "accounts", force: :cascade do |t|
     t.string "name", null: false
     t.integer "balance", default: 0, null: false
-    t.bigint "bank_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "bank_id", null: false
     t.index ["bank_id"], name: "index_accounts_on_bank_id"
   end
 
@@ -33,18 +33,18 @@ ActiveRecord::Schema.define(version: 2018_08_01_101427) do
   create_table "transactions", force: :cascade do |t|
     t.string "status", default: "processing", null: false
     t.integer "amount", null: false
-    t.bigint "transfer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "transfer_id", null: false
     t.index ["transfer_id"], name: "index_transactions_on_transfer_id"
   end
 
   create_table "transfers", force: :cascade do |t|
     t.integer "transfer_amount"
     t.string "status", default: "pending", null: false
-    t.bigint "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "account_id", null: false
     t.index ["account_id"], name: "index_transfers_on_account_id"
   end
 

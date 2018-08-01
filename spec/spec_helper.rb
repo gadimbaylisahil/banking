@@ -1,6 +1,7 @@
 require "bundler/setup"
 require "banking"
 require "active_record"
+require "pry-byebug"
 
 def db_configuration
 	db_configuration_file = File.join(File.expand_path('..', __FILE__), '..', 'db', 'config.yml')
