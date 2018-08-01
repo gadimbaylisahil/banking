@@ -67,7 +67,7 @@ class TransferAgentService
 			return true if Bank::INTRA_BANK_FAILURE == 0
 			Bank::INTRA_BANK_FAILURE > Random.rand(100)
 		else
-			return true if Bank::INTRA_BANK_FAILURE == 0
+			return true if Bank::INTER_BANK_FAILURE == 0
 			Bank::INTER_BANK_FAILURE > Random.rand(100)
 		end
 	end
