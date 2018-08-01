@@ -40,6 +40,11 @@ RSpec.describe TransferAgentService do
 			it 'transfers money from sender to receiver' do
 				expect{ transfer_agent.call }.to change{account_to.balance}.from(50000).to(70000)
 			end
+			
+			it 'deducts commissions from senders account' do
+				transfer_agent.call
+				expect(account_from.balance).to eq(30000 - transfer.transfer_amount - transfer.commission)
+			end
 		end
 	end
 end
