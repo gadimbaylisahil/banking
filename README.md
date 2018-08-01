@@ -1,11 +1,11 @@
 # Banking App
 *Small Plain Ruby application to make transfers between Bank accounts. Fully tested with Rspec and Data Persistance achieved with Postgresql.*
 
-### Prerquisites. Make sure you have these installed in your local machine:
+### Prerequisites. Make sure you have these installed on your local machine:
 
-1.Ruby(2.4.0)
-2.Postgres(9.6+)
-3.Bundler(1.16)
+1. Ruby(2.4.0)
+2. Postgres(9.6+)
+3. Bundler(1.16)
 
 
 Followings are used as dependencies of the application.
@@ -29,9 +29,9 @@ Followings are used as dependencies of the application.
 ##### Prepare test database.
 1. Run `bundle exec rake db:test:prepare`
 
-#####Run the application and see the output for example case
+####Run the application and see the output for example case
 `bundle exec ruby lib/show_me_the_money.rb`
 
 #### Tests
-To run all the tests cd to main directory and run
+To run all the tests `cd` to main directory and run
 `bundle exec rspec`
