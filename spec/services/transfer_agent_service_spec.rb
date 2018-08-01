@@ -17,6 +17,7 @@ RSpec.describe TransferAgentService do
 	let(:transfer){
 		Transfer.create(transfer_amount: 20000, account: account_from)
 	}
+	
 	describe 'Initialization' do
 		let(:transfer_agent){
 			TransferAgentService.new(transfer: transfer, from: account_from, to: account_to)
