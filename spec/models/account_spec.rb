@@ -59,4 +59,43 @@ RSpec.describe Account, type: :model do
 			expect(account).to respond_to(:transfers)
 		end
 	end
+	
+	describe 'Decorators' do
+		let(:bank_a){
+			Bank.create(name: 'Bank of Mars')
+		}
+		let(:bank_b){
+			Bank.create(name: 'Bank of Jupiter')
+		}
+		let(:jims_account){
+			Account.create(balance: 30000, bank: bank_a, name: 'Jim ')
+		}
+		let(:emmas_account){
+			Account.create(balance: 50000, bank: bank_b, name: 'Emma')
+		}
+		let(:transfer){
+			Transfer.create(transfer_amount: 20000, account: jims_account)
+		}
+		let(:second_transfer){
+			Transfer.create(transfer_amount: 20000, account: emmas_account)
+		}
+		
+		before do
+			TransferAgentService.new(transfer: transfer, from: jims_account, to: emmas_account).call
+			TransferAgentService.new(transfer: transfer, from: emmas_account, to: jims_account).call
+		end
+		
+		it 'returns sent transaction history on #sent_transactions method' do
+			expect(jims_account.sent_transactions.count).to eq(transfer.transactions.where(status: 'completed').count)
+		end
+		
+		it 'returns received transactions history on #received_transactions method' do
+			expect(emmas_account.received_transactions.count).to eq(transfer.transactions.where(status: 'completed').count)
+		end
+		
+		it 'returns all completed transactions history on #all_transactions method' do
+			expect(jims_account.all_transactions.count).to eq(transfer.transactions.where(status: 'completed').count +
+			                                                  second_transfer.transactions.where(status: 'completed').count)
+		end
+	end
 end
